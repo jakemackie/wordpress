@@ -30,4 +30,13 @@ wp-content/plugins/*
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
 wp-content/themes/*
+
+# Custom theme required files
 !wp-content/themes/my-theme/
+!wp-content/themes/index.php
+!wp-content/themes/package-lock.json
+!wp-content/themes/package.json
+!wp-content/themes/tailwind.config.js
+
+# Ignoring all cases of node_modules
+node_modules/
