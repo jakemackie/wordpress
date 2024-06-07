@@ -1,5 +1,0 @@
-# Ignoring all cases of node_modules
-node_modules/
-
-# Ignoring dist folder
-dist/
