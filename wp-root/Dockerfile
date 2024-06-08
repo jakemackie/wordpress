@@ -37,3 +37,5 @@ WORKDIR /var/www/html
 
 # Run the setup script when the container starts
 CMD ["setup.sh"]
+
+

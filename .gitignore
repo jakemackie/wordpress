@@ -6,6 +6,7 @@ dist/
 
 # Ignoring intial setup files, you should already have these downloaded.
 wp-*
+!wp-config/
 !wp-content/
 !wp-exec/
 !wp-root/
