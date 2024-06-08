@@ -5,6 +5,9 @@ node_modules/
 dist/
 
 # Ignoring intial setup files, you should already have these downloaded.
+.htaccess
+index.php
+readme.html
 wp-*
 !wp-config/
 !wp-config/wp-config.php
@@ -14,6 +17,7 @@ wp-*
 xmlrpc.php
 
 # You must manually download this or we can eventually use there api to pull a pro version straight to the docker image
+wp-content/plugins/advanced-custom-fields
 wp-content/plugins/advanced-custom-fields-pro
 wp-content/languages
 wp-content/plugins/akismet
