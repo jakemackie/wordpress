@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - wp-db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    ports:
+      - "3306:3306"
+
+  wordpress:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: wp-root/Dockerfile
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_URL: http://localhost:8000
+      WORDPRESS_TITLE: My WordPress Site
+      WORDPRESS_ADMIN_USER: admin
+      WORDPRESS_ADMIN_PASSWORD: admin
+      WORDPRESS_ADMIN_EMAIL: mail@alfiephillips.com
+      DOCKER: 'true'
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./wp-config/wp-config.php:/var/www/html/wp-config.php
+      - ./wp-root/index.php:/var/www/html/index.php
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: somewordpress
+
+volumes:
+  wp-db:
+  wp-content:
