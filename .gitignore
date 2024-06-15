@@ -20,4 +20,6 @@ xmlrpc.php
 wp-content/plugins/advanced-custom-fields
 wp-content/plugins/advanced-custom-fields-pro
 wp-content/languages
-wp-content/plugins/akismet
+wp-content/plugins/
+
+!wp-content/plugins/index.php
